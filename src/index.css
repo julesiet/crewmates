@@ -7,38 +7,140 @@
 
 }
 
-.main {
-  display: flex;
-  column-gap: 50px;
+.split-left {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  overflow-y: auto;
+  width: 25%;
+}
+
+.split-right {
+  margin-left: 25%;
+  width: 75%;
+  padding: 2rem;
+  overflow-y: visible;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.home-cntr {
+  top: 100px;
+  text-align: center;
+  gap: 20px;
+  left: 350px;
 }
 
 .navbar-cntr {
   display: flex;
   flex-direction: column;
-  background-color: lightgray;
-  color: #242424;
+  align-items: center;
   row-gap: 10px;
-  padding: 50px;
-}
-
-.summary-cntr {
-  display: flex;
-  padding: 375px;
-}
-
-.home-cntr {
-  display: flex;
-  padding: 375px;
+  background-color: lightgrey;
 }
 
 .create-cntr {
   display: flex;
-  flex-direction: column;
-  padding: 100px;
+  left: 700px;
+  top: 40px;
+  flex-direction: row;
+}
+
+.update-cntr {
+  display: flex;
+  left: 650px;
+  flex-direction: row;
+}
+
+.summary-cntr {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 150px;
+  gap: 20px;
+}
+
+.summary-cards {
+  padding: 50px;
+  width: 200px;
+  height: 200px;
+  text-align: center;
+  background-color: lightgrey;
+  color: #242424;
+}
+
+.sum-buttons {
+  font-size: 25px;
+  padding: 5px;
+  border: solid 2px #242424;
+  border-radius: 2px;
+  text-decoration: none;
+  color: #242424;
+  font-weight: bold;
+}
+
+.bg-red {
+  background-color: red;
+}
+
+.bg-orange {
+  background-color: orange;
+}
+
+.bg-yellow {
+  background-color: yellow;
+}
+
+.bg-green {
+  background-color: green;
+}
+
+.bg-blue {
+  background-color: blue;
+}
+
+.bg-purple {
+  background-color: purple;
+}
+
+.mogus-red {
+  color: red;
+}
+
+.mogus-orange {
+  color: orange;
+}
+
+.mogus-yellow {
+  color: yellow;
+}
+
+.mogus-green {
+  color: green;
+}
+
+.mogus-blue {
+  color: blue;
+}
+
+.mogus-purple {
+  color: purple;
+}
+
+.mogus {
+  margin: 0;
+  font-size: 50px;
+}
+
+.summary-header {
+  color: lightgrey;
+  text-align: center;
+  position: fixed;
+  left: 750px;
+  top: 50px;
 }
 
 .navbar-bttns {
-  padding: 10px;
+  padding: 15px 40px;
   text-decoration: none;
   background-color: #242424;
   border-radius: 2px;
@@ -56,6 +158,22 @@
   transform: scale(0.95);
 }
 
+.create-btn {
+  text-decoration: none;
+  padding: 10px;
+  border: none;
+  border-radius: 2px;
+}
+
+.create-btn:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+.create-btn:active {
+  transform: scale(0.95);
+}
+
 .cm-form {
   display: flex;
   flex-direction: column;
@@ -65,14 +183,36 @@
 
 .cm-form-bits {
   text-align: center;
-  padding: 15px;
+  width: 300px;
+  height: 150px;
   border: solid 2px lightgrey;
   border-radius: 2px;
 }
 
 .cm-radios {
-  padding: 15px;
-  width: 150px;
+  width: 300px;
+  padding: 10px;
   border: solid 2px lightgrey;
   border-radius: 2px;
+}
+
+.delete-btn {
+  background-color: maroon;
+  padding: 10px;
+  color: lightgrey;
+}
+
+.delete-btn:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+.delete-btn:active {
+  transform: scale(0.95);
+}
+
+.btn-cntr {
+  display: flex;
+  flex-direction: row;
+  column-gap: 15px;
 }

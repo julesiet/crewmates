@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
+import { supabase } from '../client';
 
 const CreateCM = () => {
     const [name, setName] = useState('');
@@ -6,7 +7,7 @@ const CreateCM = () => {
     // color doesn't need a state var because it'll be collected when button is submitted
     // (you may be asking why... but i ask you this...... why not?) (i'm REALLY stupid and not sure how to do it any other way)
 
-    const handleCrewmate = (e) => {
+    const createCrewmate = async (e) => {
         e.preventDefault();
 
         // obtaining color from radio button
@@ -14,18 +15,27 @@ const CreateCM = () => {
         const formData = new FormData(form);
         const color = formData.get('colors'); // selected color
 
-        console.log(name, speed, color);
+        console.log(name, speed, color); // <-- all attributes are ready here 
+
+        await supabase
+            .from('cm-table')
+            .insert( {name: name, speed: speed, color: color} )
+            .select();
+        
+        window.location = "/";
     }
 
     return (
         <div className="main">
 
-            <div className="create-cntr">
-                <h2> CREATE YOUR MOGUS! ඞ </h2>
-                <form onSubmit={handleCrewmate} className="cm-form">
+            <div className="split-right create-cntr">
+                <form onSubmit={createCrewmate} className="cm-form">
+
+                    <h2> CREATE YOUR MOGUS! ඞ </h2>
 
                     <div className="cm-form-bits"> 
                         <h3> NAME </h3>
+                        <p> <em>name your mogus character!</em> </p>
                         <input
                         type="text"
                         placeholder="enter a name!"
@@ -36,7 +46,7 @@ const CreateCM = () => {
 
                     <div className="cm-form-bits"> 
                         <h3> SPEED </h3>
-                        <h5> (only integer values allowed!) </h5>
+                        <p> <em>declare how fast your mogus character is!</em> </p>
                         <input
                             type="text"
                             placeholder="enter speed (in mph)"
@@ -46,7 +56,8 @@ const CreateCM = () => {
                     </div>
                     
                     <div className="cm-radios"> 
-                        <h3> COLOR </h3>
+                        <h3> <center> COLOR </center></h3>
+                        <p> <center> <em>decide what color your mogus character will be!</em></center></p>
                     {['red', 'orange', 'yellow', 'green', 'blue', 'purple'].map((currColor) => (
                         <div key={currColor}>
                             <input
@@ -61,7 +72,7 @@ const CreateCM = () => {
                     </div>
 
                     
-                    <button type="submit"> create yo crewmate ඞ </button>
+                    <button type="submit" className="create-btn"> create yo crewmate ඞ </button>
 
                 </form>
             </div>

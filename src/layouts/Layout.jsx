@@ -5,7 +5,7 @@ const Layout = () => {
     return (
         <div className="main">
 
-            <div className="navbar-cntr">
+            <div className="split-left navbar-cntr">
                 <h2> CREWMATE NAVBAR ඞ </h2>
                 <Link to="/" className="navbar-bttns">TO HOME! 🏡ඞ </Link>
                 <Link to="/create" className="navbar-bttns">MAKE CREWMATE! ඞ✨</Link>

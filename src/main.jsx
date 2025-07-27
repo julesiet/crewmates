@@ -5,6 +5,7 @@ import './index.css'
 import Layout from './layouts/Layout.jsx'
 import SummaryCM from './routes/SummaryCM.jsx'
 import CreateCM from './routes/CreateCM.jsx'
+import UpdateCM from './routes/UpdateCM.jsx'
 import Home from './routes/Home.jsx'
 import NotFound from './routes/NotFound.jsx'
 
@@ -18,8 +19,11 @@ createRoot(document.getElementById('root')).render(
             <Route index path="/" element={<Home />}/>
             <Route path="/create" element={<CreateCM />} />
             <Route path="/summary" element={<SummaryCM />} />
+            <Route path="/:id" element={<UpdateCM />}/>
         </Route>
+
         <Route path="*" element={<NotFound />}/>
+        
       </Routes>
     
     </BrowserRouter>
