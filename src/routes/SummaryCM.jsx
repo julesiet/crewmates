@@ -9,7 +9,8 @@ const SummaryCM = () => {
         const fetchCrewmates = async () => {
             const { data } = await supabase
                 .from('cm-table')
-                .select();
+                .select()
+                .order('created_at', { ascending: false });
 
             setCrewmates(data);
         }
@@ -24,7 +25,7 @@ const SummaryCM = () => {
             <h1 className="summary-header"> ALL CREWMATES! ඞ </h1>
             <div className="split-right summary-cntr">
                 {(Object.is(crewmates, null) || crewmates.length == 0) ? <h3> NO CREWMATES CREATED! :( </h3> : crewmates.map((obj) => (
-                    <div className="summary-cards">
+                    <div key={obj.id} className="summary-cards">
                         <p> {obj.name}'s Crewmate Stats!</p>
                         <p> - SPEED: {obj.speed} </p>
                         <p> - COLOR: {obj.color} </p>
